@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# USE OUR ENVIRONMENT-BASED HTACCESS FILES
+CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+MAIN_HTACCESS_PATH="docroot/.htaccess"
+GIT_ROOT_DIR=$(git rev-parse --show-toplevel)
+ENV_BASED_HTACCESS="$CURRENT_BRANCH.htaccess"
+PWD=$(pwd)
+DIFF_FILENAME="$CURRENT_BRANCH-$(date +"%s").patch"
+
+cd $GIT_ROOT_DIR
+
+echo "Current GIT branch is $CURRENT_BRANCH"
+if [ -f $ENV_BASED_HTACCESS ]; then
+    echo "$ENV_BASED_HTACCESS exists, using it to replace $MAIN_HTACCESS_PATH ..."
+    if [ ! -f $MAIN_HTACCESS_PATH ]; then
+	echo "$MAIN_HTACCESS_PATH does not exist. Skipping..."
+    else
+        echo "Checking for any differences in $MAIN_HTACCESS_PATH and $ENV_BASED_HTACCESS"
+        echo "Patching $MAIN_HTACCESS_PATH if file has changes ..."
+        git diff --no-index $MAIN_HTACCESS_PATH $ENV_BASED_HTACCESS > $DIFF_FILENAME
+        patch -p1 --dry-run $MAIN_HTACCESS_PATH < $DIFF_FILENAME
+        patch -p1 $MAIN_HTACCESS_PATH < $DIFF_FILENAME
+        rm $DIFF_FILENAME
+    fi
+else
+	echo "Checking file $ENV_BASED_HTACCESS existence [NOT FOUND]"
+fi

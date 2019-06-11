@@ -1,0 +1,26 @@
+{
+    "name": "dreamproduction/drupal-env",
+    "description": "Provides environment-based files mapping.",
+    "type": "composer-plugin",
+    "keywords": ["htaccess", "environment", "git"],
+    "extra": {
+        "class": "DreamProduction\\Composer\\Plugin"
+    },
+    "bin": [
+        "bin/htaccess-env.sh"
+    ],
+    "require": {
+        "composer-plugin-api": "^1.1"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "claudiuc",
+            "email": "claudiu.chirilov@dreamproduction.ro"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {"DreamProduction\\Composer\\": "src/"}
+    }
+}
