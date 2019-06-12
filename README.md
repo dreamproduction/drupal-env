@@ -5,7 +5,7 @@ Provides environment-based files mapping.
 ## 1. Install the package
 `$ composer require dreamproduction/drupal-env`
 
-## 2. Add/Change composer scripts
+## 2. Add/Change composer extra
 First we define a new entry under the **extra** key of the root **composer.json** file named **drupal-env** then add a new entry for each file that needs to be replaced. For example:
 
 **composer.json**
