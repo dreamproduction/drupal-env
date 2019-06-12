@@ -43,4 +43,4 @@ When bundling with composer-boilerplate project you have to modify the **/vendor
     ...
 ```
 ## 3. Create a GIT branch-based file
-You need to create a git branch-based file mapping which will replace the target file as defined in the **extra** area of your **composer.json** root file.
+You need to create a git branch-based file mapping which will replace the target file as defined in the **extra** area of your **composer.json** root file and commit it under GIT.
