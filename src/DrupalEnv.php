@@ -10,6 +10,7 @@ use Composer\IO\IOInterface;
 use Composer\Script\Event;
 use Composer\Installer\PackageEvent;
 use Composer\Autoload\ClassLoader;
+use Composer\Installer\PackageEvents;
 
 
 class DrupalEnv implements PluginInterface {  
