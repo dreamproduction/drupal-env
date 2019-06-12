@@ -6,16 +6,13 @@
     "extra": {
         "class": "DreamProduction\\Composer\\Plugin"
     },
-    "bin": [
-        "bin/htaccess-env.sh"
-    ],
     "require": {
         "composer-plugin-api": "^1.1"
     },
     "license": "MIT",
     "authors": [
         {
-            "name": "claudiuc",
+            "name": "Claudiu Chirilov",
             "email": "claudiu.chirilov@dreamproduction.ro"
         }
     ],
